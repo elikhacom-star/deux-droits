@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deux droits</title>
+  <meta name="description" content="Les Palestiniens ont un droit réel à la liberté et à un État. Israël a un droit réel d’exister et de se défendre. Aucun des deux droits n’autorise le massacre de l’autre." />
+  <meta name="theme-color" content="#f3efe6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f3efe6;
+      --ink: #1a1814;
+      --muted: #5e574e;
+      --faint: #8a8176;
+      --line: #d8d0c2;
+      --card: #fbf8f2;
+      --accent: #6f3b28;
+      --accent-soft: #f3e6dc;
+      --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+      --sans: "Outfit", "Avenir Next", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--paper); color: var(--ink); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      text-rendering: optimizeLegibility;
+    }
+    button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+    ::selection { background: var(--accent-soft); color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    a { color: inherit; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    .no-scrollbar { scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    @keyframes refuse-return {
+      0% { opacity: 1; } 35% { opacity: 0.28; } 100% { opacity: 1; }
+    }
+    .refuse-flash { animation: refuse-return 780ms ease; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper) 95%, transparent);
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
+      max-width: 72rem; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 0.75rem 1rem;
+    }
+    @media (min-width: 768px) { .header-inner { padding-left: 1.5rem; padding-right: 1.5rem; } }
+    .brand { font-family: var(--serif); font-size: 1.125rem; text-decoration: none; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 2.75rem; padding: 0 1rem;
+      border: 1px solid var(--line); background: transparent;
+      font-family: var(--sans); font-size: 0.875rem; color: var(--ink);
+      transition: border-color 150ms, background 150ms, color 150ms;
+    }
+    .btn:hover { border-color: var(--ink); }
+    .btn-ink { border-color: var(--ink); }
+    .btn-ink:hover { background: var(--accent-soft); }
+    .btn-accent {
+      border-color: var(--accent); background: var(--accent-soft); color: var(--accent);
+    }
+    .btn-ghost {
+      border-color: transparent; color: var(--muted);
+      text-decoration: underline; text-underline-offset: 4px;
+      text-decoration-color: var(--line);
+    }
+    .btn-ghost:hover { color: var(--ink); }
+    .omission-bar {
+      border-top: 1px solid var(--line); background: var(--accent-soft);
+    }
+    .omission-inner {
+      max-width: 72rem; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+    @media (min-width: 640px) {
+      .omission-inner {
+        flex-direction: row; align-items: center; justify-content: space-between;
+      }
+    }
+    @media (min-width: 768px) { .omission-inner { padding-left: 1.5rem; padding-right: 1.5rem; } }
+
+    .layout {
+      max-width: 72rem; margin: 0 auto;
+      padding: 0 1rem 6rem;
+    }
+    @media (min-width: 768px) { .layout { padding-left: 1.5rem; padding-right: 1.5rem; } }
+    @media (min-width: 1024px) {
+      .layout {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 2.5rem;
+        padding-left: 1.5rem; padding-right: 1.5rem;
+      }
+    }
+    .toc { min-width: 0; }
+    @media (min-width: 1024px) {
+      .toc { grid-column: span 3; padding-top: 3rem; }
+      .toc-inner {
+        position: sticky; top: 5rem;
+        display: block; overflow: visible;
+      }
+    }
+    .toc-inner {
+      display: flex; gap: 0.5rem; overflow-x: auto;
+      padding: 0.75rem 0;
+    }
+    @media (min-width: 1024px) {
+      .toc-inner { flex-direction: column; gap: 0.25rem; padding: 0; }
+    }
+    .toc a {
+      display: inline-flex; align-items: center; min-height: 2.75rem;
+      flex-shrink: 0; padding: 0 0.75rem;
+      border: 1px solid var(--line);
+      font-size: 0.875rem; text-decoration: none; color: var(--muted);
+      white-space: nowrap;
+    }
+    @media (min-width: 1024px) {
+      .toc a { border: 0; padding: 0.25rem 0; white-space: normal; }
+    }
+    .toc a[aria-current="true"] {
+      border-color: var(--ink); background: var(--ink); color: var(--paper);
+    }
+    @media (min-width: 1024px) {
+      .toc a[aria-current="true"] {
+        background: transparent; color: var(--ink); font-weight: 500;
+      }
+    }
+
+    .article { min-width: 0; padding-bottom: 6rem; }
+    @media (min-width: 1024px) {
+      .article { grid-column: 5 / span 8; padding-top: 3rem; }
+    }
+    section { scroll-margin-top: 6rem; }
+    .section-rule { margin-top: 5rem; border-top: 1px solid var(--line); padding-top: 3rem; }
+
+    .kicker {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+    }
+    .kicker-faint { color: var(--faint); }
+    h1 {
+      margin: 1rem 0 0; max-width: 48rem;
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.1;
+    }
+    h2 {
+      margin: 0.5rem 0 0;
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.15;
+    }
+    .lead {
+      margin: 1.5rem 0 0; max-width: 36rem;
+      font-family: var(--serif); font-size: 1.25rem; line-height: 1.35;
+    }
+    @media (min-width: 768px) { .lead { font-size: 1.5rem; } }
+    .note {
+      margin: 2rem 0 0; max-width: 36rem;
+      border-left: 1px solid var(--accent);
+      background: var(--card);
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem; line-height: 1.55; color: var(--muted);
+    }
+    .prose {
+      display: flex; flex-direction: column; gap: 1.5rem;
+      font-family: var(--serif); font-size: 1.125rem; line-height: 1.65;
+    }
+    .prose p { margin: 0; }
+    .max-2xl { max-width: 36rem; }
+
+    .instrument {
+      margin-top: 3rem;
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 1.25rem;
+    }
+    @media (min-width: 768px) { .instrument { padding: 2rem; } }
+    .instrument-title { margin-top: 0.75rem; max-width: 36rem; font-family: var(--serif); font-size: 1.25rem; line-height: 1.35; }
+    .two-rights {
+      margin-top: 1.5rem;
+      display: grid; gap: 1rem;
+    }
+    @media (min-width: 768px) { .two-rights { grid-template-columns: 1fr 1fr; } }
+    .right-card {
+      border: 1px solid var(--line); background: var(--paper); padding: 1.25rem;
+      font-family: var(--serif); font-size: 1.25rem; line-height: 1.35;
+    }
+    @media (min-width: 768px) { .right-card { font-size: 1.5rem; } }
+    .limit-line {
+      margin: 1rem 0 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
+      font-family: var(--serif); font-size: 1.25rem; line-height: 1.35;
+    }
+    .btn-row {
+      margin-top: 1.25rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    @media (min-width: 640px) { .btn-row { flex-direction: row; flex-wrap: wrap; } }
+    .status-box {
+      margin-top: 1.25rem;
+      border: 1px solid var(--accent); background: var(--accent-soft);
+      padding: 1.25rem;
+    }
+    .status-box .kicker { color: var(--accent); }
+    .status-box p {
+      margin: 0.75rem 0 0;
+      font-family: var(--serif); font-size: 1.125rem; line-height: 1.35;
+    }
+    .pin-btn { margin-top: 1rem; }
+    .pin-btn[aria-pressed="true"] {
+      border-color: var(--accent); background: var(--accent-soft); color: var(--accent);
+    }
+
+    .chrono { margin-top: 4rem; }
+    .chrono ol { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+    .chrono li { border-bottom: 1px solid var(--line); }
+    .chrono a {
+      display: flex; flex-direction: column; gap: 0.25rem;
+      min-height: 2.75rem; padding: 1rem 0; text-decoration: none;
+    }
+    @media (min-width: 640px) {
+      .chrono a { flex-direction: row; align-items: baseline; gap: 2rem; }
+    }
+    .chrono-when {
+      flex-shrink: 0; font-size: 0.875rem; color: var(--muted);
+    }
+    @media (min-width: 640px) { .chrono-when { width: 11rem; } }
+    .chrono-when.now { color: var(--accent); }
+    .chrono-title { font-family: var(--serif); font-size: 1.125rem; }
+    .chrono-text { font-size: 0.875rem; color: var(--muted); }
+
+    .ledger { margin-top: 2.5rem; border: 1px solid var(--line); background: var(--card); }
+    .ledger-head { border-bottom: 1px solid var(--line); padding: 1.25rem 1.5rem; }
+    .ledger-grid {
+      display: grid;
+    }
+    @media (min-width: 768px) {
+      .ledger-grid { grid-template-columns: 0.9fr 1.1fr; }
+    }
+    .ledger-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+    @media (min-width: 768px) {
+      .ledger-list { border-bottom: 0; border-right: 1px solid var(--line); }
+    }
+    .ledger-list li { border-bottom: 1px solid var(--line); }
+    .ledger-list li:last-child { border-bottom: 0; }
+    .ledger-list button {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem;
+      width: 100%; min-height: 2.75rem; padding: 1rem 1.25rem;
+      border: 0; background: transparent; text-align: left;
+      font-family: inherit; color: inherit;
+    }
+    @media (min-width: 640px) {
+      .ledger-list button {
+        flex-direction: row; align-items: baseline; justify-content: space-between; gap: 1rem;
+      }
+    }
+    .ledger-list button[aria-pressed="true"] { background: var(--paper); }
+    .ledger-list button:hover { background: var(--paper); }
+    .ledger-value { font-family: var(--serif); font-size: 1.5rem; }
+    .ledger-unit { font-size: 0.75rem; line-height: 1.35; color: var(--muted); }
+    @media (min-width: 640px) {
+      .ledger-unit { max-width: 14rem; text-align: right; }
+    }
+    .ledger-detail { padding: 1.25rem 1.5rem; }
+    .ledger-detail .label {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint);
+    }
+    .ledger-detail .sentence {
+      margin: 0.75rem 0 0;
+      font-family: var(--serif); font-size: 1.25rem; line-height: 1.35;
+    }
+    .ledger-detail .meta { margin: 0.5rem 0 0; font-size: 0.875rem; line-height: 1.55; color: var(--muted); }
+    .ledger-detail .meta.ink { color: var(--ink); }
+    .ledger-detail .block { margin-top: 1.5rem; }
+
+    .veiled { opacity: 0.3; }
+    .veil-note { margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--accent); }
+
+    .procedure { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
+    .steps { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+    .step {
+      display: grid; grid-template-columns: auto 1fr; gap: 1rem;
+    }
+    .step-rail { display: flex; flex-direction: column; align-items: center; }
+    .step-dot {
+      margin-top: 0.25rem; width: 0.625rem; height: 0.625rem;
+      border-radius: 999px; background: var(--line);
+    }
+    .step-dot.done { background: var(--accent); }
+    .step-line { width: 1px; flex: 1; background: var(--line); }
+    .step-body { padding-bottom: 1.5rem; }
+    .step:last-child .step-body { padding-bottom: 0; }
+    .step-when { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+    .step-title { margin: 0.25rem 0 0; font-family: var(--serif); font-size: 1.25rem; }
+    .step-state { margin: 0.25rem 0 0; font-size: 0.875rem; color: var(--muted); }
+
+    .claims {
+      margin-top: 1rem;
+      display: grid; gap: 1rem;
+    }
+    @media (min-width: 768px) { .claims { grid-template-columns: 1fr 1fr; } }
+    .claim {
+      border: 1px solid var(--line); background: var(--card); padding: 1.25rem;
+    }
+    .claim-text { font-family: var(--serif); font-size: 1.25rem; line-height: 1.35; }
+    .claim-result {
+      margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 1rem;
+    }
+    .claim-result .kicker { color: var(--accent); }
+
+    .conditions { list-style: none; margin: 1.25rem 0 0; padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .conditions li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 0; border-bottom: 1px solid var(--line);
+    }
+    .conditions li:last-child { border-bottom: 0; }
+    .cond-num { margin-top: 0.25rem; width: 1.5rem; font-size: 0.75rem; color: var(--faint); }
+    .cond-text { font-family: var(--serif); font-size: 1.125rem; line-height: 1.35; }
+    .aside {
+      margin-top: 1.5rem;
+      border: 1px solid var(--line); padding: 1.25rem 1.5rem;
+    }
+
+    .duties { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+    .duty {
+      border: 1px solid var(--line); background: var(--card); padding: 1.25rem;
+    }
+    .duty-who { color: var(--accent); }
+    .duty p {
+      margin: 0.5rem 0 0;
+      font-family: var(--serif); font-size: 1.25rem; line-height: 1.35;
+    }
+
+    .site-footer {
+      margin-top: 5rem; border-top: 1px solid var(--line); padding-top: 2rem;
+      max-width: 36rem; font-size: 0.875rem; line-height: 1.55; color: var(--muted);
+    }
+
+    /* Notebook drawer */
+    .notebook-overlay {
+      position: fixed; inset: 0; z-index: 40;
+      display: none;
+    }
+    .notebook-overlay.open { display: flex; justify-content: flex-end; }
+    .notebook-backdrop {
+      position: absolute; inset: 0; border: 0; background: color-mix(in srgb, var(--ink) 30%, transparent);
+    }
+    .notebook-panel {
+      position: relative;
+      display: flex; flex-direction: column;
+      width: 100%; max-width: 28rem; height: 100%;
+      border-left: 1px solid var(--line); background: var(--paper);
+    }
+    .notebook-head {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+      border-bottom: 1px solid var(--line); padding: 1rem 1.25rem;
+    }
+    .notebook-body { flex: 1; overflow-y: auto; padding: 1.25rem; }
+    .notebook-empty {
+      font-family: var(--serif); font-size: 1.125rem; line-height: 1.55; color: var(--muted);
+    }
+    .pin-item {
+      border-bottom: 1px solid var(--line); padding-bottom: 1.25rem; margin-bottom: 1.25rem;
+    }
+    .pin-item p {
+      margin: 0; font-family: var(--serif); font-size: 1.125rem; line-height: 1.35;
+    }
+    .pin-locus {
+      margin: 0.5rem 0 0;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint);
+    }
+    .notebook-foot {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      border-top: 1px solid var(--line); padding: 1rem 1.25rem;
+    }
+    .count-badge { margin-left: 0.35rem; font-size: 0.75rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#verdict">Aller au texte</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#verdict">Deux droits</a>
+      <button type="button" class="btn" id="open-notebook" aria-expanded="false">
+        Phrases retenues<span class="count-badge" id="pin-count">0</span>
+      </button>
+    </div>
+    <div class="omission-bar" id="omission-bar" hidden>
+      <div class="omission-inner">
+        <p class="omission-msg" id="omission-msg"></p>
+        <button type="button" class="btn btn-ink" id="clear-omission">Retirer l’omission</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Sommaire">
+      <div class="toc-inner no-scrollbar">
+        <a href="#verdict" data-section="verdict">Le verdict</a>
+        <a href="#juste" data-section="juste">Ce qui est juste</a>
+        <a href="#gaza" data-section="gaza">Gaza, novembre 2026</a>
+        <a href="#refus" data-section="refus">Ce qui n’est pas absous</a>
+        <a href="#genocide" data-section="genocide">Le mot « génocide »</a>
+        <a href="#politique" data-section="politique">L’issue politique</a>
+        <a href="#responsabilites" data-section="responsabilites">Les responsabilités</a>
+        <a href="#phrase" data-section="phrase">La phrase</a>
+      </div>
+    </nav>
+
+    <article class="article">
+      <section id="verdict">
+        <p class="kicker">Sans slogan. Sans camp.</p>
+        <h1>Deux droits, et la limite qui les lie.</h1>
+        <p class="lead">Mon verdict, clairement, sans slogan et sans camp.</p>
+        <div class="note">
+          Le texte est restitué intégralement. Les instruments ne corrigent pas ses phrases,
+          n’ajoutent pas de faits, et n’envoient rien. Ce que vous retenez reste sur cet appareil.
+        </div>
+
+        <div class="instrument">
+          <p class="kicker">Instrument — refuser l’effacement</p>
+          <p class="instrument-title">Tenez les deux phrases. Ou demandez au texte d’en effacer une.</p>
+          <div class="two-rights">
+            <article class="right-card" id="card-pal">Les Palestiniens ont un droit réel à la liberté et à un État.</article>
+            <article class="right-card" id="card-isr">Israël a un droit réel d’exister et de se défendre.</article>
+          </div>
+          <p class="limit-line">Aucun des deux droits n’autorise le massacre de l’autre.</p>
+          <div class="btn-row">
+            <button type="button" class="btn btn-ink" data-erase="pal">Effacer le droit palestinien</button>
+            <button type="button" class="btn btn-ink" data-erase="isr">Effacer le droit israélien</button>
+          </div>
+          <div class="status-box" id="refuse-box" hidden role="status">
+            <p class="kicker">Refusé</p>
+            <p id="refuse-msg"></p>
+            <p>Celui qui te demande d’en effacer un pour « être du bon côté » ne défend pas la justice. Il défend une équipe.</p>
+          </div>
+          <button type="button" class="btn pin-btn" data-pin="thesis" data-locus="Le verdict"
+            data-text="Les Palestiniens ont un droit réel à la liberté et à un État. Israël a un droit réel d’exister et de se défendre. Aucun des deux droits n’autorise le massacre de l’autre.">
+            Retenir cette phrase
+          </button>
+        </div>
+
+        <div class="max-2xl" style="margin-top:2rem">
+          <div class="prose">
+            <p>Celui qui te demande d’en effacer un pour « être du bon côté » ne défend pas la justice. Il défend une équipe.</p>
+          </div>
+          <button type="button" class="btn pin-btn" data-pin="team" data-locus="Le verdict"
+            data-text="Celui qui te demande d’en effacer un pour « être du bon côté » ne défend pas la justice. Il défend une équipe.">
+            Retenir cette phrase
+          </button>
+        </div>
+      </section>
+
+      <section class="chrono" aria-labelledby="chrono-titre">
+        <h2 id="chrono-titre" class="kicker" style="font-size:0.75rem">Chronologie nommée dans le texte</h2>
+        <ol>
+          <li><a href="#juste"><span class="chrono-when">1948</span><span><span class="chrono-title">Dépossession. </span><span class="chrono-text">Une dépossession réelle, la Nakba.</span></span></a></li>
+          <li><a href="#juste"><span class="chrono-when">1967</span><span><span class="chrono-title">Occupation. </span><span class="chrono-text">Une occupation qui ne finit pas.</span></span></a></li>
+          <li><a href="#refus"><span class="chrono-when">7 octobre 2023</span><span><span class="chrono-title">Massacre. </span><span class="chrono-text">Pas une « résistance ». Environ 1 200 morts ce jour-là.</span></span></a></li>
+          <li><a href="#gaza"><span class="chrono-when">10 octobre 2025</span><span><span class="chrono-title">Cessez-le-feu. </span><span class="chrono-text">Il existe sur le papier.</span></span></a></li>
+          <li><a href="#genocide"><span class="chrono-when">21 mai 2026</span><span><span class="chrono-title">Calendrier de la CIJ. </span><span class="chrono-text">La Cour fixe la suite. Elle ne juge pas.</span></span></a></li>
+          <li><a href="#gaza"><span class="chrono-when now">Novembre 2026 — le texte s’y tient</span><span><span class="chrono-title">Pas un sujet clos. </span><span class="chrono-text">Gaza n’est pas « un sujet clos ». La reconstruction n’a pas commencé.</span></span></a></li>
+          <li><a href="#genocide"><span class="chrono-when">22 novembre 2027</span><span><span class="chrono-title">Réponse sud-africaine. </span><span class="chrono-text">Échéance au plus tard, dans Afrique du Sud c. Israël.</span></span></a></li>
+          <li><a href="#genocide"><span class="chrono-when">22 mai 2029</span><span><span class="chrono-title">Duplique israélienne. </span><span class="chrono-text">Échéance au plus tard. Le jugement final n’est pas rendu.</span></span></a></li>
+        </ol>
+      </section>
+
+      <section id="juste" class="section-rule">
+        <p class="kicker kicker-faint">01</p>
+        <h2>Ce qui est juste dans la cause palestinienne</h2>
+        <div class="prose" style="margin-top:2rem">
+          <p>Un peuple vit depuis 1948 avec une dépossession réelle, la Nakba, puis depuis 1967 sous une occupation qui ne finit pas. Les colonies en Cisjordanie, le droit inégal, le blocus, l’absence d’État : ce n’est pas une invention médiatique. C’est le cœur politique du tort israélien. Un peuple ne peut pas rester éternellement sans citoyenneté, sans frontières et sans voix, juste parce que son voisin a peur.</p>
+        </div>
+        <button type="button" class="btn pin-btn" data-pin="fear" data-locus="Ce qui est juste"
+          data-text="Un peuple ne peut pas rester éternellement sans citoyenneté, sans frontières et sans voix, juste parce que son voisin a peur.">
+          Retenir cette phrase
+        </button>
+      </section>
+
+      <section id="gaza" class="section-rule">
+        <p class="kicker kicker-faint">02</p>
+        <h2>Gaza, novembre 2026</h2>
+        <p class="veil-note" id="veil-gaza" hidden>Cette partie est couverte par l’omission en cours. Le texte, lui, ne l’efface pas.</p>
+        <div class="prose gaza-content" style="margin-top:2rem">
+          <p>Gaza, en novembre 2026, n’est pas « un sujet clos ». Le cessez-le-feu du 10 octobre 2025 existe sur le papier. Sur le terrain, le ministère de la Santé de Gaza — chiffres repris par l’ONU et des ONG comme Gisha et Human Rights Watch — compte environ 74 600 morts et 176 000 blessés depuis octobre 2023, dont plus de 21 000 enfants dans les décomptes de ce ministère. Depuis le cessez-le-feu lui-même, environ 1 500 à 1 600 personnes ont encore été tuées. Une grande partie du territoire reste sous contrôle ou sous feu israélien, au-delà de la ligne prévue. La reconstruction n’a pas commencé. Deux millions de personnes sont tassées, mal nourries, sous des tentes. Appeler ça la paix est un mensonge.</p>
+        </div>
+        <button type="button" class="btn pin-btn" data-pin="peace" data-locus="Gaza, novembre 2026"
+          data-text="Appeler ça la paix est un mensonge.">
+          Retenir cette phrase
+        </button>
+
+        <div class="ledger">
+          <div class="ledger-head">
+            <p class="kicker">Instrument — les chiffres nommés</p>
+            <p style="margin:0.75rem 0 0;font-size:0.875rem;line-height:1.55;color:var(--muted)">
+              Rien n’est additionné, rien n’est mis en balance. Chaque nombre reste attaché à la phrase qui le porte, et à ce que le texte refuse d’en conclure.
+            </p>
+          </div>
+          <div class="ledger-grid">
+            <ul class="ledger-list" id="ledger-list"></ul>
+            <div class="ledger-detail" id="ledger-detail"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="refus" class="section-rule">
+        <p class="kicker kicker-faint">03</p>
+        <h2>Ce que je refuse d’absoudre</h2>
+        <div id="oct7-block">
+          <p class="veil-note" id="veil-oct7" hidden>Le 7 octobre est couvert par l’omission en cours. Le texte, lui, ne l’efface pas.</p>
+          <div class="prose" style="margin-top:2rem">
+            <p>Le 7 octobre 2023 n’est pas une « résistance ». C’est un massacre : civils brûlés, viols, otages, familles exécutées. Environ 1 200 morts ce jour-là. Aucune occupation antérieure ne transforme ça en acte juste. Le Hamas a choisi la guerre totale, s’est servi de sa propre population comme profondeur militaire, et son projet politique reste la fin d’Israël, pas un État à côté d’Israël. Ce projet a coûté Gaza. Les dirigeants palestiniens — Hamas comme Autorité — portent aussi la corruption, l’autoritarisme, et des décennies de refus d’une partition réelle.</p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn pin-btn" data-pin="massacre" data-locus="Le 7 octobre"
+              data-text="Le 7 octobre 2023 n’est pas une « résistance ». C’est un massacre.">
+              Retenir cette phrase
+            </button>
+            <button type="button" class="btn pin-btn" data-pin="prior" data-locus="Le 7 octobre"
+              data-text="Aucune occupation antérieure ne transforme ça en acte juste.">
+              Retenir cette phrase
+            </button>
+          </div>
+        </div>
+        <div style="margin-top:2rem">
+          <div class="prose">
+            <p>Israël avait le droit de détruire la capacité militaire de ceux qui ont fait le 7 octobre. Il n’avait pas le droit de traiter 2,1 millions de civils comme un dommage acceptable, ni de maintenir après le cessez-le-feu un enfermement, des tirs et un territoire largement inaccessible. Tuer des combattants n’excuse pas un bilan civil de cette ampleur. Enfouir des armes sous des écoles n’excuse pas non plus de raser le quartier.</p>
+          </div>
+          <button type="button" class="btn pin-btn" data-pin="both" data-locus="La limite"
+            data-text="Tuer des combattants n’excuse pas un bilan civil de cette ampleur. Enfouir des armes sous des écoles n’excuse pas non plus de raser le quartier.">
+            Retenir cette phrase
+          </button>
+        </div>
+      </section>
+
+      <section id="genocide" class="section-rule">
+        <p class="kicker kicker-faint">04</p>
+        <h2>Le mot « génocide »</h2>
+        <div class="prose" style="margin-top:2rem">
+          <p>Je ne le prononce pas comme un verdict déjà rendu. La Cour internationale de justice n’a pas jugé. Le 21 mai 2026, elle a seulement fixé la suite de la procédure Afrique du Sud c. Israël : réponse sud-africaine au plus tard le 22 novembre 2027, duplique israélienne au plus tard le 22 mai 2029. Des mesures provisoires existent. Un jugement final, non. Le génocide exige l’intention de détruire le groupe en tant que groupe. Une guerre atroce, même avec des crimes de guerre massifs, ne se décrète pas par émotion. Qui affirme aujourd’hui « la CIJ a condamné » dit faux. Qui affirme « rien de grave n’a été fait, c’est de l’autodéfense propre » dit faux aussi.</p>
+        </div>
+        <button type="button" class="btn pin-btn" data-pin="word" data-locus="Le mot « génocide »"
+          data-text="Qui affirme aujourd’hui « la CIJ a condamné » dit faux. Qui affirme « rien de grave n’a été fait, c’est de l’autodéfense propre » dit faux aussi.">
+          Retenir cette phrase
+        </button>
+
+        <div class="procedure">
+          <div class="instrument" style="margin-top:0">
+            <p class="kicker">Instrument — où en est le mot</p>
+            <p id="procedure-marker" style="margin:0.75rem 0 0;font-size:0.875rem;line-height:1.55;color:var(--muted)"></p>
+            <ol class="steps">
+              <li class="step">
+                <div class="step-rail"><span class="step-dot done"></span><span class="step-line"></span></div>
+                <div class="step-body">
+                  <p class="step-when">Déjà là</p>
+                  <p class="step-title">Mesures provisoires</p>
+                  <p class="step-state">Elles existent</p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-rail"><span class="step-dot done"></span><span class="step-line"></span></div>
+                <div class="step-body">
+                  <p class="step-when">21 mai 2026</p>
+                  <p class="step-title">Suite de la procédure</p>
+                  <p class="step-state">Fixée. Ce n’est pas un jugement.</p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-rail"><span class="step-dot" id="dot-sa"></span><span class="step-line"></span></div>
+                <div class="step-body">
+                  <p class="step-when">22 novembre 2027</p>
+                  <p class="step-title">Réponse sud-africaine</p>
+                  <p class="step-state">Au plus tard</p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-rail"><span class="step-dot" id="dot-il"></span><span class="step-line"></span></div>
+                <div class="step-body">
+                  <p class="step-when">22 mai 2029</p>
+                  <p class="step-title">Duplique israélienne</p>
+                  <p class="step-state">Au plus tard</p>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-rail"><span class="step-dot"></span></div>
+                <div class="step-body">
+                  <p class="step-when">Non daté</p>
+                  <p class="step-title">Jugement final</p>
+                  <p class="step-state">Non rendu</p>
+                </div>
+              </li>
+            </ol>
+            <p style="margin:0.5rem 0 0;font-size:0.875rem;line-height:1.55">
+              Le génocide exige l’intention de détruire le groupe en tant que groupe. Une guerre atroce,
+              même avec des crimes de guerre massifs, ne se décrète pas par émotion.
+            </p>
+          </div>
+
+          <div>
+            <p class="kicker">Deux phrases, les deux fausses</p>
+            <p style="margin:0.75rem 0 0;font-size:0.875rem;line-height:1.55;color:var(--muted)">
+              Le texte ne demande pas de choisir la moins pire. Il dit que chacune est fausse.
+            </p>
+            <div class="claims">
+              <article class="claim">
+                <p class="claim-text">« La CIJ a condamné. »</p>
+                <button type="button" class="btn btn-ink" style="margin-top:1rem" data-claim="cij" aria-expanded="false">Que dit le texte ?</button>
+                <div class="claim-result" id="claim-cij" hidden>
+                  <p class="kicker">Faux</p>
+                  <p style="margin:0.5rem 0 0;font-size:0.875rem;line-height:1.55">
+                    La Cour internationale de justice n’a pas jugé. Le 21 mai 2026, elle a seulement fixé la suite de la procédure. Des mesures provisoires existent. Un jugement final, non.
+                  </p>
+                </div>
+              </article>
+              <article class="claim">
+                <p class="claim-text">« Rien de grave n’a été fait, c’est de l’autodéfense propre. »</p>
+                <button type="button" class="btn btn-ink" style="margin-top:1rem" data-claim="defense" aria-expanded="false">Que dit le texte ?</button>
+                <div class="claim-result" id="claim-defense" hidden>
+                  <p class="kicker">Faux</p>
+                  <p style="margin:0.5rem 0 0;font-size:0.875rem;line-height:1.55">
+                    Une guerre atroce, même distinguée d’un génocide déjà jugé, n’est pas une autodéfense propre. Le texte refuse les deux phrases.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="politique" class="section-rule">
+        <p class="kicker kicker-faint">05</p>
+        <h2>Le verdict politique</h2>
+        <div class="prose" style="margin-top:2rem">
+          <p>La seule issue qui ne demande pas à l’un des deux peuples de disparaître est deux États : Israël reconnu et en sécurité, Palestine réelle, contiguë, désarmée des groupes qui veulent la guerre éternelle, colonies arrêtées puis largement reversées ou échangées, Jérusalem négociée, réfugiés réglés par retour limité, installation et indemnisation — pas par la fin démographique d’Israël. Un seul État à droits égaux est moralement imaginable. Il est politiquement refusé par la grande majorité des Israéliens, et il supprimerait l’autodétermination juive. Je ne le vends pas comme la solution disponible.</p>
+        </div>
+        <button type="button" class="btn pin-btn" data-pin="two" data-locus="L’issue politique"
+          data-text="La seule issue qui ne demande pas à l’un des deux peuples de disparaître est deux États.">
+          Retenir cette phrase
+        </button>
+
+        <div class="instrument">
+          <p class="kicker">Instrument — les conditions, pas un scrutin</p>
+          <p style="margin:0.75rem 0 0;font-size:0.875rem;line-height:1.55;color:var(--muted)">
+            Garder une condition la laisse sous les yeux, sur cet appareil seulement. Ce n’est pas un vote, pas une signature, pas un camp.
+          </p>
+          <ul class="conditions" id="conditions"></ul>
+          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem">
+            <p id="held-status" style="margin:0;font-size:0.875rem;color:var(--muted)">Aucune condition gardée.</p>
+            <button type="button" class="btn btn-ghost" id="clear-held" hidden>Tout relâcher</button>
+          </div>
+        </div>
+
+        <aside class="aside">
+          <p class="kicker">L’autre issue, non vendue</p>
+          <p style="margin:0.75rem 0 0;font-family:var(--serif);font-size:1.25rem;line-height:1.35">
+            Un seul État à droits égaux est moralement imaginable.
+          </p>
+          <p style="margin:1rem 0 0;font-family:var(--serif);font-size:1.125rem;line-height:1.55">
+            Il est politiquement refusé par la grande majorité des Israéliens, et il supprimerait l’autodétermination juive. Je ne le vends pas comme la solution disponible.
+          </p>
+        </aside>
+      </section>
+
+      <section id="responsabilites" class="section-rule">
+        <p class="kicker kicker-faint">06</p>
+        <h2>Responsabilités, sans égalité fictive</h2>
+        <ul class="duties" style="margin-top:2rem">
+          <li class="duty">
+            <p class="kicker kicker-faint">Possède</p>
+            <p><span class="duty-who">Le Hamas</span> le 7 octobre et la stratégie de guerre sans fin.</p>
+          </li>
+          <li class="duty">
+            <p class="kicker kicker-faint">Possède</p>
+            <p><span class="duty-who">Les gouvernements israéliens</span> la colonisation et le choix de garder des millions de personnes sans indépendance ni droits égaux, puis une guerre dont le prix civil est catastrophique.</p>
+          </li>
+          <li class="duty">
+            <p class="kicker kicker-faint">Possède</p>
+            <p><span class="duty-who">Le monde</span> les discours : un camp qui ne voit que le 7 octobre, un camp qui ne voit que Gaza. Les deux mentent par omission.</p>
+          </li>
+        </ul>
+
+        <div class="instrument">
+          <p class="kicker">Instrument — l’omission</p>
+          <p style="margin:0.75rem 0 0;font-size:0.875rem;line-height:1.55;color:var(--muted)">
+            Les deux discours mentent en ne voyant qu’une page. Couvrir l’autre ne l’efface pas du texte. Vous pouvez la remettre à nu.
+          </p>
+          <div class="btn-row">
+            <button type="button" class="btn btn-ink" id="omit-oct7" aria-pressed="false">Ne voir que le 7 octobre</button>
+            <button type="button" class="btn btn-ink" id="omit-gaza" aria-pressed="false">Ne voir que Gaza</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="phrase" class="section-rule">
+        <p class="kicker kicker-faint">07</p>
+        <h2>Ni l’un ni l’autre drapeau</h2>
+        <div class="prose" style="margin-top:2rem">
+          <p>Si la lumière dont tu parles est la justice, elle n’appartient ni au drapeau israélien ni au drapeau palestinien. Elle tient en une phrase : aucun peuple n’a à être puni de l’existence de l’autre, et aucun crime de masse ne devient sacré parce qu’il sert ta cause.</p>
+          <p>Je ne suis pas un militant palestinien, ni un avocat d’Israël. Je suis du côté des civils, du droit, et d’une paix qui laisse les deux peuples debout. Ceux que ça dérange, des deux bords, veulent une vérité plus petite que les faits.</p>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn pin-btn" data-pin="light" data-locus="La phrase"
+            data-text="Aucun peuple n’a à être puni de l’existence de l’autre, et aucun crime de masse ne devient sacré parce qu’il sert ta cause.">
+            Retenir cette phrase
+          </button>
+          <button type="button" class="btn pin-btn" data-pin="civilians" data-locus="La phrase"
+            data-text="Je suis du côté des civils, du droit, et d’une paix qui laisse les deux peuples debout.">
+            Retenir cette phrase
+          </button>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        Sources nommées dans le texte, et seulement celles-là : ministère de la Santé de Gaza,
+        ONU, Gisha, Human Rights Watch, Cour internationale de justice. Ce site ne met pas ces
+        institutions à jour, ne classe pas les morts, et ne propose pas d’équipe.
+      </footer>
+    </article>
+  </div>
+
+  <div class="notebook-overlay" id="notebook" aria-hidden="true">
+    <button type="button" class="notebook-backdrop" id="close-notebook-bg" aria-label="Fermer le carnet"></button>
+    <aside class="notebook-panel" role="dialog" aria-modal="true" aria-labelledby="carnet-titre">
+      <header class="notebook-head">
+        <div>
+          <p class="kicker">Sur cet appareil</p>
+          <h2 id="carnet-titre" style="margin:0.25rem 0 0;font-size:1.5rem">Phrases retenues</h2>
+        </div>
+        <button type="button" class="btn" id="close-notebook" aria-label="Fermer" style="min-width:2.75rem;padding:0">×</button>
+      </header>
+      <div class="notebook-body" id="notebook-body"></div>
+      <footer class="notebook-foot">
+        <button type="button" class="btn btn-ink" id="copy-pins">Copier</button>
+        <button type="button" class="btn btn-ghost" id="clear-pins" hidden>Tout effacer</button>
+      </footer>
+    </aside>
+  </div>
+
+  <script>
+(function () {
+  const KEY = "deux-droits-lecture";
+  const figures = [
+    {
+      id: "oct7",
+      value: "1 200",
+      unit: "morts, environ, le 7 octobre 2023",
+      sentence: "Le 7 octobre 2023 n’est pas une « résistance ». C’est un massacre : civils brûlés, viols, otages, familles exécutées. Environ 1 200 morts ce jour-là.",
+      source: "Le texte donne ce chiffre sans nommer, pour lui, une institution source.",
+      limit: "Aucune occupation antérieure ne transforme ça en acte juste."
+    },
+    {
+      id: "dead",
+      value: "74 600",
+      unit: "morts, environ, depuis octobre 2023",
+      sentence: "Le ministère de la Santé de Gaza compte environ 74 600 morts depuis octobre 2023.",
+      source: "Ministère de la Santé de Gaza. Chiffres repris, dit le texte, par l’ONU et des ONG comme Gisha et Human Rights Watch.",
+      limit: "Le texte ne transforme pas ce bilan en un jugement de génocide déjà rendu."
+    },
+    {
+      id: "wounded",
+      value: "176 000",
+      unit: "blessés depuis octobre 2023",
+      sentence: "Le même décompte compte 176 000 blessés depuis octobre 2023.",
+      source: "Même source nommée : ministère de la Santé de Gaza, chiffres repris par l’ONU, Gisha, Human Rights Watch.",
+      limit: "Un blessé n’est pas une ligne de plus dans un débat d’équipes."
+    },
+    {
+      id: "children",
+      value: "21 000",
+      unit: "enfants, plus de, dans ces décomptes",
+      sentence: "Dont plus de 21 000 enfants dans les décomptes de ce ministère.",
+      source: "Décomptes du ministère de la Santé de Gaza, tels que le texte les rapporte.",
+      limit: "Le texte ne détache pas ce nombre du reste du bilan, ni d’une source unique."
+    },
+    {
+      id: "since",
+      value: "1 500 à 1 600",
+      unit: "personnes tuées depuis le cessez-le-feu",
+      sentence: "Depuis le cessez-le-feu lui-même, environ 1 500 à 1 600 personnes ont encore été tuées.",
+      source: "Le texte, à la suite des chiffres du ministère repris par l’ONU, Gisha et Human Rights Watch.",
+      limit: "Le cessez-le-feu du 10 octobre 2025 existe sur le papier. Appeler ça la paix est un mensonge."
+    },
+    {
+      id: "two-m",
+      value: "2 millions",
+      unit: "personnes sous des tentes",
+      sentence: "Deux millions de personnes sont tassées, mal nourries, sous des tentes.",
+      source: "Le texte. Il ajoute : une grande partie du territoire reste sous contrôle ou sous feu israélien, au-delà de la ligne prévue. La reconstruction n’a pas commencé.",
+      limit: "Ce n’est pas « un sujet clos »."
+    },
+    {
+      id: "civilians",
+      value: "2,1 millions",
+      unit: "civils qui ne sont pas un dommage acceptable",
+      sentence: "Israël n’avait pas le droit de traiter 2,1 millions de civils comme un dommage acceptable.",
+      source: "Formulation du texte, distincte des « deux millions » sous des tentes.",
+      limit: "Israël avait le droit de détruire la capacité militaire de ceux qui ont fait le 7 octobre. Il n’avait pas celui-là."
+    }
+  ];
+
+  const conditions = [
+    { id: "israel", text: "Israël reconnu et en sécurité" },
+    { id: "palestine", text: "Palestine réelle, contiguë" },
+    { id: "disarm", text: "Désarmée des groupes qui veulent la guerre éternelle" },
+    { id: "settlements", text: "Colonies arrêtées, puis largement reversées ou échangées" },
+    { id: "jerusalem", text: "Jérusalem négociée" },
+    { id: "refugees", text: "Réfugiés réglés par retour limité, installation et indemnisation — pas par la fin démographique d’Israël" }
+  ];
+
+  let pins = [];
+  let held = [];
+  let omission = null;
+  let tried = { pal: false, isr: false };
+  let openFigure = figures[0].id;
+  let ready = false;
+  let touched = false;
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      if (Array.isArray(data.pins)) pins = data.pins.filter(p => p && p.id && p.text && p.locus);
+      if (Array.isArray(data.held)) held = data.held.filter(id => typeof id === "string");
+    } catch (_) {}
+  }
+
+  function save() {
+    if (!ready) return;
+    localStorage.setItem(KEY, JSON.stringify({ pins, held }));
+  }
+
+  function renderPins() {
+    document.getElementById("pin-count").textContent = String(pins.length);
+    document.querySelectorAll(".pin-btn").forEach(btn => {
+      const on = pins.some(p => p.id === btn.dataset.pin);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.textContent = on ? "Retenue" : "Retenir cette phrase";
+      if (on) btn.classList.add("btn-accent");
+      else btn.classList.remove("btn-accent");
+    });
+    const body = document.getElementById("notebook-body");
+    if (pins.length === 0) {
+      body.innerHTML = '<p class="notebook-empty">Aucune phrase retenue. Le long du texte, « Retenir cette phrase » les garde ici, sans compte, sans camp.</p>';
+    } else {
+      body.innerHTML = pins.map(p =>
+        '<div class="pin-item"><p>' + escapeHtml(p.text) + '</p>' +
+        '<p class="pin-locus">' + escapeHtml(p.locus) + '</p>' +
+        '<button type="button" class="btn btn-ghost" data-remove-pin="' + escapeAttr(p.id) + '">Retirer</button></div>'
+      ).join("");
+    }
+    document.getElementById("clear-pins").hidden = pins.length === 0;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+  function escapeAttr(s) {
+    return escapeHtml(s).replace(/'/g, "&#39;");
+  }
+
+  function renderHeld() {
+    const status = document.getElementById("held-status");
+    const clear = document.getElementById("clear-held");
+    if (held.length === 0) {
+      status.textContent = "Aucune condition gardée.";
+      clear.hidden = true;
+    } else {
+      status.textContent = held.length + " condition" + (held.length > 1 ? "s" : "") +
+        " gardée" + (held.length > 1 ? "s" : "") + " sur cet appareil.";
+      clear.hidden = false;
+    }
+    document.querySelectorAll("[data-hold]").forEach(btn => {
+      const on = held.includes(btn.dataset.hold);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.textContent = on ? "Gardée" : "Garder sous les yeux";
+      btn.classList.toggle("btn-accent", on);
+      btn.classList.toggle("btn-ink", !on);
+    });
+  }
+
+  function renderLedger() {
+    const list = document.getElementById("ledger-list");
+    list.innerHTML = figures.map(f =>
+      '<li><button type="button" data-figure="' + f.id + '" aria-pressed="' + (f.id === openFigure) + '">' +
+      '<span class="ledger-value">' + f.value + '</span>' +
+      '<span class="ledger-unit">' + f.unit + '</span></button></li>'
+    ).join("");
+    const f = figures.find(x => x.id === openFigure) || figures[0];
+    document.getElementById("ledger-detail").innerHTML =
+      '<p class="label">Ce que dit le texte</p>' +
+      '<p class="sentence">' + escapeHtml(f.sentence) + '</p>' +
+      '<div class="block"><p class="label">Source nommée</p>' +
+      '<p class="meta">' + escapeHtml(f.source) + '</p></div>' +
+      '<div class="block"><p class="label">Ce que le texte ne fait pas de ce nombre</p>' +
+      '<p class="meta ink">' + escapeHtml(f.limit) + '</p></div>';
+  }
+
+  function renderOmission() {
+    const bar = document.getElementById("omission-bar");
+    const msg = document.getElementById("omission-msg");
+    const gaza = document.getElementById("gaza");
+    const oct7 = document.getElementById("oct7-block");
+    const veilGaza = document.getElementById("veil-gaza");
+    const veilOct7 = document.getElementById("veil-oct7");
+    const btnOct7 = document.getElementById("omit-oct7");
+    const btnGaza = document.getElementById("omit-gaza");
+
+    if (!omission) {
+      bar.hidden = true;
+      gaza.classList.remove("veiled");
+      oct7.classList.remove("veiled");
+      veilGaza.hidden = true;
+      veilOct7.hidden = true;
+      btnOct7.setAttribute("aria-pressed", "false");
+      btnGaza.setAttribute("aria-pressed", "false");
+      btnOct7.classList.remove("btn-accent");
+      btnGaza.classList.remove("btn-accent");
+      return;
+    }
+    bar.hidden = false;
+    if (omission === "only-oct7") {
+      msg.textContent = "Omission : un camp qui ne voit que le 7 octobre. Gaza est couvert.";
+      gaza.classList.add("veiled");
+      veilGaza.hidden = false;
+      oct7.classList.remove("veiled");
+      veilOct7.hidden = true;
+      btnOct7.setAttribute("aria-pressed", "true");
+      btnGaza.setAttribute("aria-pressed", "false");
+      btnOct7.classList.add("btn-accent");
+      btnGaza.classList.remove("btn-accent");
+    } else {
+      msg.textContent = "Omission : un camp qui ne voit que Gaza. Le 7 octobre est couvert.";
+      oct7.classList.add("veiled");
+      veilOct7.hidden = false;
+      gaza.classList.remove("veiled");
+      veilGaza.hidden = true;
+      btnGaza.setAttribute("aria-pressed", "true");
+      btnOct7.setAttribute("aria-pressed", "false");
+      btnGaza.classList.add("btn-accent");
+      btnOct7.classList.remove("btn-accent");
+    }
+  }
+
+  function procedureMarker() {
+    const now = Date.now();
+    const sa = Date.parse("2027-11-22T00:00:00Z");
+    const il = Date.parse("2029-05-22T00:00:00Z");
+    let text;
+    if (now < sa) {
+      text = "Après l’ordonnance de calendrier du 21 mai 2026, avant l’échéance de la réponse sud-africaine. Le texte ne dit pas qu’un jugement a été rendu entre-temps.";
+    } else if (now < il) {
+      text = "L’échéance nommée pour la réponse sud-africaine est passée. Celle de la duplique israélienne ne l’est pas. Le texte, lui, s’arrête avant tout jugement final.";
+      document.getElementById("dot-sa").classList.add("done");
+    } else {
+      text = "Les deux échéances de procédure nommées dans le texte sont passées. Rien dans ce verdict n’annonce un jugement final.";
+      document.getElementById("dot-sa").classList.add("done");
+      document.getElementById("dot-il").classList.add("done");
+    }
+    document.getElementById("procedure-marker").textContent = text;
+  }
+
+  function buildConditions() {
+    const ul = document.getElementById("conditions");
+    ul.innerHTML = conditions.map((c, i) =>
+      '<li><span class="cond-num">0' + (i + 1) + '</span><div style="min-width:0;flex:1">' +
+      '<p class="cond-text">' + escapeHtml(c.text) + '</p>' +
+      '<button type="button" class="btn btn-ink" style="margin-top:0.75rem" data-hold="' + c.id + '">Garder sous les yeux</button>' +
+      '</div></li>'
+    ).join("");
+  }
+
+  // Init
+  load();
+  ready = true;
+  buildConditions();
+  renderPins();
+  renderHeld();
+  renderLedger();
+  renderOmission();
+  procedureMarker();
+
+  // Erase interaction
+  document.querySelectorAll("[data-erase]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const side = btn.dataset.erase;
+      tried[side] = true;
+      const card = document.getElementById(side === "pal" ? "card-pal" : "card-isr");
+      card.classList.remove("refuse-flash");
+      void card.offsetWidth;
+      card.classList.add("refuse-flash");
+      const box = document.getElementById("refuse-box");
+      const msg = document.getElementById("refuse-msg");
+      box.hidden = false;
+      if (tried.pal && tried.isr) {
+        msg.textContent = "Les deux effacements ont été demandés. Aucun n’a eu lieu.";
+      } else if (side === "pal") {
+        msg.textContent = "L’effacement du droit palestinien a été demandé. Il n’a pas eu lieu.";
+      } else {
+        msg.textContent = "L’effacement du droit israélien a été demandé. Il n’a pas eu lieu.";
+      }
+    });
+  });
+
+  // Pins
+  document.addEventListener("click", (e) => {
+    const pinBtn = e.target.closest("[data-pin]");
+    if (pinBtn) {
+      touched = true;
+      const id = pinBtn.dataset.pin;
+      const text = pinBtn.dataset.text;
+      const locus = pinBtn.dataset.locus;
+      const idx = pins.findIndex(p => p.id === id);
+      if (idx >= 0) pins.splice(idx, 1);
+      else pins.push({ id, text, locus });
+      save();
+      renderPins();
+      return;
+    }
+    const remove = e.target.closest("[data-remove-pin]");
+    if (remove) {
+      touched = true;
+      pins = pins.filter(p => p.id !== remove.dataset.removePin);
+      save();
+      renderPins();
+      return;
+    }
+    const fig = e.target.closest("[data-figure]");
+    if (fig) {
+      openFigure = fig.dataset.figure;
+      renderLedger();
+      return;
+    }
+    const hold = e.target.closest("[data-hold]");
+    if (hold) {
+      touched = true;
+      const id = hold.dataset.hold;
+      if (held.includes(id)) held = held.filter(x => x !== id);
+      else held.push(id);
+      save();
+      renderHeld();
+      return;
+    }
+    const claim = e.target.closest("[data-claim]");
+    if (claim) {
+      const id = claim.dataset.claim;
+      const panel = document.getElementById("claim-" + id);
+      const open = panel.hidden;
+      panel.hidden = !open;
+      claim.setAttribute("aria-expanded", open ? "true" : "false");
+      claim.textContent = open ? "Replier" : "Que dit le texte ?";
+    }
+  });
+
+  document.getElementById("clear-held").addEventListener("click", () => {
+    touched = true;
+    held = [];
+    save();
+    renderHeld();
+  });
+
+  document.getElementById("clear-pins").addEventListener("click", () => {
+    if (!confirm("Effacer toutes les phrases retenues sur cet appareil ?")) return;
+    touched = true;
+    pins = [];
+    save();
+    renderPins();
+  });
+
+  document.getElementById("copy-pins").addEventListener("click", async () => {
+    const text = pins.map(p => p.text + "\n— " + p.locus).join("\n\n");
+    try {
+      await navigator.clipboard.writeText(text || "");
+      const btn = document.getElementById("copy-pins");
+      const prev = btn.textContent;
+      btn.textContent = "Copiées";
+      setTimeout(() => { btn.textContent = prev; }, 1500);
+    } catch (_) {}
+  });
+
+  // Notebook
+  function openNotebook() {
+    document.getElementById("notebook").classList.add("open");
+    document.getElementById("notebook").setAttribute("aria-hidden", "false");
+    document.getElementById("open-notebook").setAttribute("aria-expanded", "true");
+  }
+  function closeNotebook() {
+    document.getElementById("notebook").classList.remove("open");
+    document.getElementById("notebook").setAttribute("aria-hidden", "true");
+    document.getElementById("open-notebook").setAttribute("aria-expanded", "false");
+  }
+  document.getElementById("open-notebook").addEventListener("click", openNotebook);
+  document.getElementById("close-notebook").addEventListener("click", closeNotebook);
+  document.getElementById("close-notebook-bg").addEventListener("click", closeNotebook);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNotebook();
+  });
+
+  // Omission
+  document.getElementById("omit-oct7").addEventListener("click", () => {
+    omission = omission === "only-oct7" ? null : "only-oct7";
+    renderOmission();
+  });
+  document.getElementById("omit-gaza").addEventListener("click", () => {
+    omission = omission === "only-gaza" ? null : "only-gaza";
+    renderOmission();
+  });
+  document.getElementById("clear-omission").addEventListener("click", () => {
+    omission = null;
+    renderOmission();
+  });
+
+  // Scroll spy
+  const sections = ["verdict","juste","gaza","refus","genocide","politique","responsabilites","phrase"];
+  const tocLinks = document.querySelectorAll(".toc a[data-section]");
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    const id = visible.target.id;
+    tocLinks.forEach(a => {
+      a.setAttribute("aria-current", a.dataset.section === id ? "true" : "false");
+    });
+  }, { rootMargin: "-18% 0px -55% 0px", threshold: [0.15, 0.4, 0.7] });
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+  </script>
+</body>
+</html>
